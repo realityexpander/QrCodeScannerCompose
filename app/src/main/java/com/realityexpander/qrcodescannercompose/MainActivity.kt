@@ -31,6 +31,8 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.realityexpander.qrcodescannercompose.ui.theme.QrCodeScannerComposeTheme
 
+// QR Code Generator: https://www.qr-code-generator.com/    realityexpanderdev google acct
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
