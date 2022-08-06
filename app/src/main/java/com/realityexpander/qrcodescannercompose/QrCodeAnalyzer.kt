@@ -8,7 +8,7 @@ import com.google.zxing.common.HybridBinarizer
 import java.nio.ByteBuffer
 
 class QrCodeAnalyzer(
-    private val onQrCodeScanned: (String) -> Unit
+    private val onQrCodeScanResult: (String) -> Unit
 ): ImageAnalysis.Analyzer {
 
     private val supportedImageFormats = listOf(
@@ -42,7 +42,8 @@ class QrCodeAnalyzer(
                         )
                     )
                 }.decode(binaryBmp)
-                onQrCodeScanned(result.text)
+
+                onQrCodeScanResult(result.text)
             } catch(e: Exception) {
                 e.printStackTrace()
             } finally {
