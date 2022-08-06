@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ) {
                     if (hasCamPermission) {
-                        AndroidView(
+                        AndroidView( // camera view does not work with compose yet
                             factory = { context ->
                                 val previewView = PreviewView(context)
                                 val preview = Preview.Builder().build()
@@ -120,7 +120,7 @@ class MainActivity : ComponentActivity() {
 
                                 previewView
                             },
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f) // Take all space after the other views
                         )
 
                         // Show QR Code scanned text

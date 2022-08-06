@@ -19,6 +19,8 @@ class QrCodeAnalyzer(
 
     override fun analyze(image: ImageProxy) {
         if(image.format in supportedImageFormats) {
+
+            // Change the image format for the QR Code detector to use the YUV_420_888 format.
             val bytes = image.planes.first().buffer.toByteArray()
             val source = PlanarYUVLuminanceSource(
                 bytes,
@@ -32,6 +34,7 @@ class QrCodeAnalyzer(
             )
             val binaryBmp = BinaryBitmap(HybridBinarizer(source))
 
+            // Detect the QR Code.
             try {
                 val result = MultiFormatReader().apply {
                     setHints(
